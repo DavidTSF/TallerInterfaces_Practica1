@@ -2,7 +2,6 @@ package dev.davveg.practica2
 
 
 import android.content.Context
-import android.view.ContextMenu
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,16 +13,16 @@ import dev.davveg.practica2.model.GalleryCard
 
 class GalleryAdapter : RecyclerView.Adapter<GalleryAdapter.ViewHolder>() {
 
-    var superheros: List<GalleryCard>  = ArrayList()
+    var galleryCardList: List<GalleryCard>  = ArrayList()
     lateinit var context: Context
 
     fun RecyclerAdapter(superheros : List<GalleryCard>, context: Context){
-        this.superheros = superheros
+        this.galleryCardList = superheros
         this.context = context
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = superheros.get(position)
+        val item = galleryCardList.get(position)
         holder.bind(item, context)
 
     }
@@ -34,7 +33,7 @@ class GalleryAdapter : RecyclerView.Adapter<GalleryAdapter.ViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return superheros.size
+        return galleryCardList.size
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
